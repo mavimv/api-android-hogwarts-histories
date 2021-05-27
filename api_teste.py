@@ -26,13 +26,21 @@ def get():
     return jsonify(usuarios)
 
 
-@app.route("/usuarios/<int:id>", methods=['GET'])
+@app.route("/usuarios/<int:id>", methods=['GET', 'POST'])
 def get_one(id):
     filtro = [e for e in usuarios if e["id"] == id]
     if filtro:
         return jsonify(filtro[0])
     else:
         return jsonify({})
+
+@app.route("/usuarios/<nome>", methods=['GET', 'POST'])
+def get_nome(nome):
+    filtro = [e for e in usuarios if e["nome"] == nome]
+    if filtro:
+        return jsonify(filtro[0])
+    else:
+        return jsonify('Usuario nao existe')
 
 
 @app.route("/usuarios", methods=['POST'])
@@ -66,4 +74,4 @@ def delete(id):
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
