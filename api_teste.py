@@ -40,7 +40,7 @@ def get_nome(nome):
     if filtro:
         return jsonify(filtro[0])
     else:
-        return jsonify('Usuario nao existe')
+        return ('Usuario nao existe')
 
 
 @app.route("/usuarios", methods=['POST'])
