@@ -3,15 +3,6 @@ from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
-usuarios = [
-            {
-                "id": e,
-                "nome": "Usuario "+str(e),
-                "senha": str(e + 1)
-            }
-            for e in range(1, 11)
-           ]
-
 usuario =  {
                 "id": 12,
                 "nome": 'aluno',
